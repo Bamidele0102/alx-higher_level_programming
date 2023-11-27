@@ -1,4 +1,4 @@
-This is my repository to begin my journey into Alx-Higher_Level_Programming.
+This is my repository to begin my journey into Alx-Higher_Level_Programming. :school_satchel::computer:
 =====================================================================
 
 Introduction to Python Programming!
