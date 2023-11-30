@@ -2,13 +2,13 @@
 from sys import argv
 
 if __name__ == "__main__":
-    argc = len(argv) - 1
-    plural_suffix = 's' if argc != 1 else ''
+    num_args = len(argv) - 1
+    print("{} argument{}:".format(
+        num_args, 's' if num_args != 1 else ''), end='')
 
-    print("Number of argument{}: {}".format(plural_suffix, argc), end='')
-    if argc == 0:
+    if num_args == 0:
         print('.')
     else:
-        print(':')
-        for i, arg in enumerate(argv[1:], start=1):
-            print("{}: {}".format(i, arg))
+        print('')
+        for i in range(1, num_args + 1):
+            print("{:d}: {}".format(i, argv[i]))
