@@ -4,7 +4,6 @@ import sys
 if __name__ == "__main__":
     args = sys.argv[1:]
     size = len(args)
-
     if size != 1:
         plural = "s" if size != 0 else ""
         print("{} argument{}:".format(size, plural))
