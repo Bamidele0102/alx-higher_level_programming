@@ -11,6 +11,7 @@ _Format: one integer per line. See example_
 - You can assume that the list only contains integers
 - You are not allowed to cast integers into strings
 - You have to use str.format() to print integers
+
 ![Alt text](image.png)
 =====================================================================
 # 1. Secure access to an element in a list
