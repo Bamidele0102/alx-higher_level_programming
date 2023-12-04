@@ -166,7 +166,7 @@ _Prototype:_ _int is_palindrome(listint_t **head);_
 
 All your files will be interpreted/compiled on Ubuntu 14.04 LTE
 
-![alt text](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/7e7834b535261d05532fb80a9304f7051c4ad7ac.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231204T201017Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=af85511ac891a878c717aa596e1d586aff05c2c2126e326b89e054ab825c7561)
+![Alt text](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/7e7834b535261d05532fb80a9304f7051c4ad7ac.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231204T201017Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=af85511ac891a878c717aa596e1d586aff05c2c2126e326b89e054ab825c7561)
 
 _Create a C function that prints some basic info about Python lists._
 
