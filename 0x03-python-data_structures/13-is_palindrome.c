@@ -1,53 +1,64 @@
 #include "lists.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
- *add_nodeint - adds a new node at the beginning of a listint_t list
- *@head: head of listint_t
- *@n: int to add in listint_t list
- *Return: address of the new element, or NULL if it failed
+ * reverse_list - reverses a linked list in-place
+ * @head: pointer to the head of the list
+ * Return: pointer to the new head of the reversed list
  */
-listint_t *add_nodeint(listint_t **head, const int n)
+listint_t *reverse_list(listint_t **head)
 {
-	listint_t *new;
+	listint_t *prev = NULL, *current = *head, *next;
 
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
-	new->next = *head;
-	*head = new;
-	return (new);
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
+	return (*head);
 }
+
 /**
- *is_palindrome - identify if a syngle linked list is palindrome
- *@head: head of listint_t
- *Return: 1 if it is palindrome else 0
+ * is_palindrome - identifies if a singly linked list is a palindrome
+ * @head: pointer to the head of the list
+ * Return: 1 if it is palindrome, else 0
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *head2 = *head;
-	listint_t *aux = NULL, *aux2 = NULL;
+	listint_t *slow = *head, *fast = *head, *second_half;
 
-	if (*head == NULL || head2->next == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (head2 != NULL)
+
+	// Move 'fast' two steps and 'slow' one step to find the middle
+	while (fast != NULL && fast->next != NULL)
 	{
-		add_nodeint(&aux, head2->n);
-		head2 = head2->next;
+		fast = fast->next->next;
+		slow = slow->next;
 	}
-	aux2 = aux;
-	while (*head != NULL)
+
+	// If the number of elements is odd, move 'slow' one more step
+	if (fast != NULL)
+		slow = slow->next;
+
+	// Reverse the second half of the list
+	second_half = reverse_list(&slow);
+
+	// Compare the first half with the reversed second half
+	while (second_half != NULL)
 	{
-		if ((*head)->n != aux2->n)
+		if ((*head)->n != second_half->n)
 		{
-			free_listint(aux);
+			reverse_list(&slow); // Revert changes to the second half
 			return (0);
 		}
 		*head = (*head)->next;
-		aux2 = aux2->next;
+		second_half = second_half->next;
 	}
-	free_listint(aux);
+
+	reverse_list(&slow); // Revert changes to the second half
 	return (1);
 }
