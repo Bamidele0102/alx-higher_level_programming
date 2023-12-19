@@ -3,6 +3,7 @@
 This is a simple Square class with a private instance attribute.
 """
 
+
 class Square:
     """
     The Square class represents a geometric square.
