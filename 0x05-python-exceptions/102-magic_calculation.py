@@ -8,7 +8,7 @@ def magic_calculation(a, b):
                 raise ValueError('Too far')
             result += (a ** b) / i
         except ValueError:
-            result += a + b
+            result = a + b
             break
 
     return result
