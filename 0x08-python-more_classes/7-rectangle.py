@@ -63,13 +63,9 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        def __str__(self):
-            """Return a string representation of the Rectangle."""
-            if self.__width == 0 or self.__height == 0:
-                return ""
-            line = str(Rectangle.print_symbol) * self.__width
-            rectangle_lines = [line for _ in range(self.__height)]
-            return "\n".join(rectangle_lines)
+        line = str(self.print_symbol) * self.__width
+        rectangle_lines = [line for _ in range(self.__height)]
+        return "\n".join(rectangle_lines)
 
     def __repr__(self):
         """Return a string representation of the Rectangle for eval()."""
@@ -83,8 +79,6 @@ class Rectangle:
 
 
 if __name__ == "__main__":
-    Rectangle = __import__('7-rectangle').Rectangle
-
     my_rectangle_1 = Rectangle(8, 4)
     print(my_rectangle_1)
     print("--")
