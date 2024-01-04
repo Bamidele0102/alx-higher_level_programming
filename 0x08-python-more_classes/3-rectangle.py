@@ -61,7 +61,11 @@ class Rectangle:
 
     def __repr__(self):
         """Return a representation of the Rectangle for debugging."""
-        return "<{} object at {}>".format(type(self).__name__, hex(id(self)))
+        class_name = type(self).__name__
+        module_name = type(self).__module__
+        representation = "<{} object at {}>".format(
+            module_name + '.' + class_name, hex(id(self)))
+        return representation
 
 
 if __name__ == "__main__":
