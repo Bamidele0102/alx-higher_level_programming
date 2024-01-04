@@ -17,7 +17,7 @@ class Rectangle:
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
-        #Incremented during each new instance instantiation
+        # Incremented during each new instance instantiation
 
     @property
     def width(self):
