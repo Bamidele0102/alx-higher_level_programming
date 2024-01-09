@@ -1,55 +1,30 @@
 #!/usr/bin/python3
-""" Module to print status code """
-
-
 import sys
+from collections import defaultdict
 
-
-def print_info():
-    print('File size: {:d}'.format(file_size))
-
-    for scode, code_times in sorted(status_codes.items()):
-        if code_times > 0:
-            print('{}: {:d}'.format(scode, code_times))
-
-
-status_codes = {
-    '200': 0,
-    '301': 0,
-    '400': 0,
-    '401': 0,
-    '403': 0,
-    '404': 0,
-    '405': 0,
-    '500': 0
-}
-
-lc = 0
-file_size = 0
+total_file_size = 0
+status_code_counts = defaultdict(int)
 
 try:
-    for line in sys.stdin:
-        if lc != 0 and lc % 10 == 0:
-            print_info()
-
-        pieces = line.split()
-
+    for i, line in enumerate(sys.stdin, start=1):
         try:
-            status = int(pieces[-2])
+            parts = line.split()
+            file_size = int(parts[-1])
+            status_code = int(parts[-2])
 
-            if str(status) in status_codes.keys():
-                status_codes[str(status)] += 1
-        except Exception:
+            total_file_size += file_size
+            status_code_counts[status_code] += 1
+
+            if i % 10 == 0:
+                print(f"File size: {total_file_size}")
+                for code in sorted(status_code_counts):
+                    print(f"{code}: {status_code_counts[code]}")
+
+        except (ValueError, IndexError):
             pass
 
-        try:
-            file_size += int(pieces[-1])
-        except Exception:
-            pass
-
-        lc += 1
-
-    print_info()
 except KeyboardInterrupt:
-    print_info()
-    raise
+    print(f"File size: {total_file_size}")
+    for code in sorted(status_code_counts):
+        print(f"{code}: {status_code_counts[code]}")
+    sys.exit(0)
