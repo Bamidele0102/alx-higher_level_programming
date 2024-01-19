@@ -188,4 +188,4 @@ Write the Python function def magic_calculation(a, b, c): that does exactly the 
 
 _**Tips - ByteCode**_
 
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmrshrestha.medium.com%2Fif-else-or-switch-case-which-one-to-pick-c5877c040e31&psig=AOvVaw257CLl_hlsHQB0-fTIowCN&ust=1701297603521000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDu88vh54IDFQAAAAAdAAAAABAE)
+![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmrshrestha.medium.com%2Fif-else-or-switch-case-which-one-to-pick-c5877c040e31&psig=AOvVaw257CLl_hlsHQB0-fTIowCN&ust=1701297603521000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDu88vh54IDFQAAAAAdAAAAABAE)
