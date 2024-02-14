@@ -1,3 +1,2 @@
--- Lists all rows of table
-
-SELECT * FROM fist_table;
+-- Lists all rows of the table first_table.
+SELECT * FROM `first_table`;
