@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """
-given URL as parameter, fetch URL and display value from reponse header
-usage: ./5-hbtn_header https://intranet.hbtn.io
+Python script that fetches an URL with requests package
 """
-from sys import argv
 import requests
 
 
 if __name__ == "__main__":
-    r = requests.get(argv[1])
-    print(r.headers.get('X-Request-Id'))
+    r = requests.get('https://alx-intranet.hbtn.io/status')
+    t = r.text
+    print('Body response:\n\t- type: {}\n\t- content: {}'.format(type(t), t))
