@@ -1,24 +1,26 @@
 #!/usr/bin/python3
-"""Sends a request to the URL and displays the body of the response."""
+"""
+given letter as param, POST to http://0.0.0.0:5000/search_user
+usage: ./8-json_api.py [letter only]
+"""
+from sys import argv
+import requests
 
 
-if __name__ == '__main__':
-    from requests import post
-    from sys import argv
-
-    URL = 'http://0.0.0.0:5000/search_user'
-    data = {'q': argv[1] if len(argv) >= 2 else ""}
-    response = post(URL, data)
-
-    type_res = response.headers['content-type']
-
-    if type_res == 'application/json':
-        result = response.json()
-        _id = result.get('id')
-        name = result.get('name')
-        if (result != {} and _id and name):
-            print("[{}] {}".format(_id, name))
-        else:
-            print('No result')
+if __name__ == "__main__":
+    if len(argv) < 2:
+        letter = ""
     else:
-        print('Not a valid JSON')
+        letter = argv[1]
+    url = 'http://0.0.0.0:5000/search_user'
+    payload = {'q': letter}
+    r = requests.post(url, data=payload)
+
+    try:
+        dic = r.json()
+        if dic:
+            print("[{}] {}".format(dic.get('id'), dic.get('name')))
+        else:
+            print("No result")
+    except ValueError as e:
+        print("Not a valid JSON")
